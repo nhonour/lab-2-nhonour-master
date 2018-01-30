@@ -19,7 +19,7 @@ if (done == 1)
 	start = 0;
 end	
 	
-fillscreen fill(.clk(CLOCK_50), .resetn(KEY[3]), .start(start), .done(done), .vga_x(xcoor), .vga_y(ycoor), .vga_colour(colour), .vga_plot(plot));
+fillscreen fill(.clk(CLOCK_50), .rstn(KEY[3]), .start(start), .done(done), .vga_x(xcoor), .vga_y(ycoor), .vga_colour(colour), .vga_plot(plot));
 vga_adapter#(.RESOLUTION("160x120")) VGA_DISPLAY(.resetn(KEY[3]), .clock(CLOCK_50), .x(xcoor), .y(ycoor), .plot(plot));
 
 

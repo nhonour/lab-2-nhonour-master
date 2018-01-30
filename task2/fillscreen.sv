@@ -8,21 +8,20 @@ always_ff @(posedge clk)
 begin
 if (rstn == 0)
 	begin
-		done = 1;
-		vga_x = 0;
-		vga_y = 0;
+		vga_x = -1;
+		vga_y = -1;
 		vga_plot = 0;
 	end
-else if	(start == 1)
+if (start == 1)
 begin
 	done = 0;
 	if (vga_x < 159)
 	begin
-		vga_x <= vga_x + 1;
+		vga_x = vga_x + 1;
 		vga_colour = vga_x % 8;
 		vga_plot = 1;
 	end
-	else if (vga_x == 160)
+	else
 	begin
 		vga_y = vga_y +1;
 		vga_x = 0;
